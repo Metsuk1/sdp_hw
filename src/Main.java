@@ -1,12 +1,16 @@
-import Abstract_Factory.AbstractFactoryMethodUsage;
-import Factory.FactoryMethodUsage;
+import adaptees.GifViewer;
+import adaptees.PngViewer;
+import adapters.GifAdapter;
+import adapters.PngAdapter;
+import interfaces.ImageViewer;
 
+//Client usage
 public class Main {
     public static void main(String[] args) {
-        System.out.println("-- Factory Method Example ---");
-        FactoryMethodUsage.startFactoryMethodUsage();
+        ImageViewer png = new PngAdapter(new PngViewer());
+        png.display("photo.png");
 
-        System.out.println("\n--- Abstract Factory Example ---");
-        AbstractFactoryMethodUsage.startAbstractFactoryMethodUsage();
+        ImageViewer gif = new GifAdapter(new GifViewer());
+        gif.display("animation.gif");
     }
 }
